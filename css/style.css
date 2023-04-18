@@ -55,7 +55,7 @@ mark {
 
 .container {
   width: 1024px;
-  min-height: 200px;
+  min-height: 150px;
   margin: 0 auto; /* top and bottom, right and left */
   border: 1px hidden #000;
   /* border: none; */
