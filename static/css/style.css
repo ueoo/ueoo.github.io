@@ -1,4 +1,10 @@
 /* CSS Document */
+/* Ensure padding and borders are included in the element's total width and height */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* Use relative font sizes */
 body {
@@ -9,6 +15,8 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
+  min-width: 165px;
+  /* Set your desired minimum width */
 }
 
 /* Responsive headings */
@@ -27,9 +35,34 @@ h3 {
 
 h4 {
   font-size: 1.45em;
-  font-weight: bold; /* Add this line to make h4 elements bold */
+  font-weight: bold;
+  /* Add this line to make h4 elements bold */
 }
 
+.bigname,
+.bigname-top {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.breakable-email {
+  overflow-wrap: break-word;
+  /* Allows the email to wrap within the link */
+  word-wrap: break-word;
+  /* For legacy browser support */
+}
+
+.social-links img {
+  width: auto;
+  height: 26px;
+  vertical-align: middle;
+}
+
+.social-links {
+  padding-top: 1em;
+  text-align: center;
+}
 
 /* Disable underline on hover for all links */
 a:hover {
@@ -49,29 +82,32 @@ a:hover {
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: clamp(0.1em, 2%, 1em);      /* Min: 0.5em, Preferred: 2%, Max: 1em */
+  padding: clamp(0.1em, 2%, 1em);
+  /* Min: 0.5em, Preferred: 2%, Max: 1em */
   color: #4d4b59;
   background: #ffffff;
   text-align: center;
 }
 
 .researcher {
-  padding-left: clamp(0.1em, 8%, 5em);
-  padding-right: clamp(0.1em, 8%, 5em);
+  padding-left: clamp(0em, 6%, 5em);
+  padding-right: clamp(0em, 6%, 5em);
 }
 
 .paper,
 .experience {
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: clamp(0.1em, 5%, 3em);  /* Minimum 1em, preferred 5%, maximum 5em */
-  padding-right: clamp(0.1em, 5%, 3em); /* Minimum 1em, preferred 5%, maximum 5em */
+  padding-left: clamp(0em, 4%, 2em);
+  /* Minimum 1em, preferred 5%, maximum 5em */
+  padding-right: clamp(0em, 4%, 2em);
+  /* Minimum 1em, preferred 5%, maximum 5em */
 }
 
 /* Responsive images */
 .researcherphoto img {
   width: 100%;
-  max-width: 230px;
+  max-width: 320px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
@@ -83,23 +119,45 @@ table {
 
 th,
 td {
-  padding: clamp(0em, 1%, 1em); /* Min: 0.5em, Preferred: 2%, Max: 1em */
+  padding: clamp(0em, 1%, 1em);
+  /* Min: 0.5em, Preferred: 2%, Max: 1em */
 }
 
 /* Styles for the paper section */
-.paper .teaser-cell {
+.image-cell {
   width: 32%;
   vertical-align: center;
 }
 
-.paper .info-cell {
+.avatar-cell {
+  width: 32%;
+  vertical-align: top;
+  padding-top: 5em;
+}
+
+.avatar-cell-top {
+  display: none;
+}
+
+.bigname-top {
+  display: none;
+}
+
+
+.info-cell,
+.bio-cell {
   width: 68%;
   vertical-align: top;
-  text-align: left; /* Add this line to left-align text */
-  padding-top: clamp(0.1em, 2%, 1em);      /* Min: 0.5em, Preferred: 2%, Max: 1em */
-  padding-bottom: clamp(0.1em, 2%, 1em);   /* Min: 0.5em, Preferred: 2%, Max: 1em */
-  padding-left: clamp(0.1em, 5%, 1.5em);     /* Min: 1em, Preferred: 5%, Max: 1.5em */
+  text-align: left;
+  /* Add this line to left-align text */
+  padding-top: clamp(0.1em, 2%, 1em);
+  /* Min: 0.5em, Preferred: 2%, Max: 1em */
+  padding-bottom: clamp(0.1em, 2%, 1em);
+  /* Min: 0.5em, Preferred: 2%, Max: 1em */
+  padding-left: clamp(0.1em, 5%, 1.5em);
+  /* Min: 1em, Preferred: 5%, Max: 1.5em */
 }
+
 
 .paper img {
   width: 100%;
@@ -108,24 +166,63 @@ td {
 
 .experience .image-cell {
   width: 40%;
-  vertical-align: center;
 }
 
 .experience .info-cell {
   width: 60%;
-  padding-left: clamp(0.1em, 1%, 1em);     /* Min: 1em, Preferred: 5%, Max: 1.5em */
   vertical-align: center;
-  text-align: left; /* Add this line to left-align text */
 }
 
 /* Targeting images inside the .experience section */
 .experience .image-cell img {
-  width: clamp(80px, 30%, 120px); /* Minimum 80px, preferred 30% of container, maximum 120px */
-  height: clamp(80px, 30%, 120px); /* Consistent height based on width */
-  object-fit: contain; /* Maintains aspect ratio without distortion */
+  width: clamp(80px, 30%, 120px);
+  /* Minimum 80px, preferred 30% of container, maximum 120px */
+  width: clamp(80px, 30%, 120px);
+  /* Minimum 80px, preferred 30% of container, maximum 120px */
+  max-width: 90%;
+  /* Ensures image does not exceed 90% of the parent container's width */
+  max-height: fit-content;
+  object-fit: contain;
+  /* Prevents distortion by maintaining aspect ratio */
+  display: block;
+  /* Removes any inline spacing */
+  margin: 0 auto;
+  /* Centers the image horizontally within its container */
 }
 
 
 .containersmall {
   text-align: right;
+}
+
+@media (max-width: 35em) {
+  .image-cell {
+    display: none;
+  }
+
+  .info-cell {
+    width: 100%;
+  }
+
+  .avatar-cell {
+    display: none;
+  }
+
+  .avatar-cell-top {
+    display: block;
+  }
+
+  .researcherphoto img {
+    /* border-radius: 50%; */
+    max-width: 135px;
+  }
+
+  .bigname {
+    display: none;
+  }
+
+  .bigname-top {
+    display: block;
+    font-size: 2em;
+  }
 }
