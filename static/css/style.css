@@ -42,7 +42,7 @@ h4 {
 .bigname,
 .bigname-top {
   font-size: 2.5em;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-align: center;
 }
 
