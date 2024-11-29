@@ -49,29 +49,29 @@ a:hover {
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: clamp(0.5em, 2%, 1em);      /* Min: 0.5em, Preferred: 2%, Max: 1em */
+  padding: clamp(0.1em, 2%, 1em);      /* Min: 0.5em, Preferred: 2%, Max: 1em */
   color: #4d4b59;
   background: #ffffff;
   text-align: center;
 }
 
 .researcher {
-  padding-left: clamp(1em, 5%, 5em);
-  padding-right: clamp(1em, 5%, 5em);
+  padding-left: clamp(0.1em, 8%, 5em);
+  padding-right: clamp(0.1em, 8%, 5em);
 }
 
 .paper,
 .experience {
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: clamp(1em, 5%, 3em);  /* Minimum 1em, preferred 5%, maximum 5em */
-  padding-right: clamp(1em, 5%, 3em); /* Minimum 1em, preferred 5%, maximum 5em */
+  padding-left: clamp(0.1em, 5%, 3em);  /* Minimum 1em, preferred 5%, maximum 5em */
+  padding-right: clamp(0.1em, 5%, 3em); /* Minimum 1em, preferred 5%, maximum 5em */
 }
 
 /* Responsive images */
 .researcherphoto img {
   width: 100%;
-  max-width: 220px;
+  max-width: 230px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
@@ -83,7 +83,7 @@ table {
 
 th,
 td {
-  padding: 10px;
+  padding: clamp(0em, 1%, 1em); /* Min: 0.5em, Preferred: 2%, Max: 1em */
 }
 
 /* Styles for the paper section */
@@ -96,9 +96,9 @@ td {
   width: 68%;
   vertical-align: top;
   text-align: left; /* Add this line to left-align text */
-  padding-top: clamp(0.5em, 2%, 1em);      /* Min: 0.5em, Preferred: 2%, Max: 1em */
-  padding-bottom: clamp(0.5em, 2%, 1em);   /* Min: 0.5em, Preferred: 2%, Max: 1em */
-  padding-left: clamp(1em, 5%, 1.5em);     /* Min: 1em, Preferred: 5%, Max: 1.5em */
+  padding-top: clamp(0.1em, 2%, 1em);      /* Min: 0.5em, Preferred: 2%, Max: 1em */
+  padding-bottom: clamp(0.1em, 2%, 1em);   /* Min: 0.5em, Preferred: 2%, Max: 1em */
+  padding-left: clamp(0.1em, 5%, 1.5em);     /* Min: 1em, Preferred: 5%, Max: 1.5em */
 }
 
 .paper img {
@@ -113,7 +113,7 @@ td {
 
 .experience .info-cell {
   width: 60%;
-  padding-left: clamp(0.2em, 1%, 1em);     /* Min: 1em, Preferred: 5%, Max: 1.5em */
+  padding-left: clamp(0.1em, 1%, 1em);     /* Min: 1em, Preferred: 5%, Max: 1.5em */
   vertical-align: center;
   text-align: left; /* Add this line to left-align text */
 }
