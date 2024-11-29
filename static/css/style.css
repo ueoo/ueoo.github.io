@@ -49,23 +49,23 @@ a:hover {
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 1em;
+  padding: clamp(0.5em, 2%, 1em);      /* Min: 0.5em, Preferred: 2%, Max: 1em */
   color: #4d4b59;
   background: #ffffff;
   text-align: center;
 }
 
 .researcher {
-  padding-left: 5em;
-  padding-right: 5em;
+  padding-left: clamp(1em, 5%, 5em);
+  padding-right: clamp(1em, 5%, 5em);
 }
 
 .paper,
 .experience {
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: 3em;
-  padding-right: 3em;
+  padding-left: clamp(1em, 5%, 3em);  /* Minimum 1em, preferred 5%, maximum 5em */
+  padding-right: clamp(1em, 5%, 3em); /* Minimum 1em, preferred 5%, maximum 5em */
 }
 
 /* Responsive images */
@@ -96,9 +96,9 @@ td {
   width: 68%;
   vertical-align: top;
   text-align: left; /* Add this line to left-align text */
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-left: 1.5em;
+  padding-top: clamp(0.5em, 2%, 1em);      /* Min: 0.5em, Preferred: 2%, Max: 1em */
+  padding-bottom: clamp(0.5em, 2%, 1em);   /* Min: 0.5em, Preferred: 2%, Max: 1em */
+  padding-left: clamp(1em, 5%, 1.5em);     /* Min: 1em, Preferred: 5%, Max: 1.5em */
 }
 
 .paper img {
@@ -113,15 +113,16 @@ td {
 
 .experience .info-cell {
   width: 60%;
-  padding-left: 1em;
+  padding-left: clamp(0.2em, 1%, 1em);     /* Min: 1em, Preferred: 5%, Max: 1.5em */
   vertical-align: center;
   text-align: left; /* Add this line to left-align text */
 }
 
 /* Targeting images inside the .experience section */
 .experience .image-cell img {
-  width: 30%;
-  object-fit: contain; /* Maintains aspect ratio */
+  width: clamp(80px, 30%, 120px); /* Minimum 80px, preferred 30% of container, maximum 120px */
+  height: clamp(80px, 30%, 120px); /* Consistent height based on width */
+  object-fit: contain; /* Maintains aspect ratio without distortion */
 }
 
 
