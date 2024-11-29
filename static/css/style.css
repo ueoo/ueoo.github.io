@@ -1,235 +1,130 @@
 /* CSS Document */
 
+/* Use relative font sizes */
 body {
-  /*background: #f7f7f7;*/
   background: #e3e5e8;
   color: #ffffff;
   font-family: "Lato", Verdana, Helvetica, sans-serif;
   font-weight: 300;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
-/* Headings */
-
+/* Responsive headings */
 h1 {
-  font-size: 30pt;
+  font-size: 2em;
 }
 
 h2 {
-  font-size: 22pt;
+  font-size: 1.75em;
+  padding-bottom: 0.25em;
 }
 
 h3 {
-  font-size: 14pt;
+  font-size: 1.65em;
 }
 
-/* Hyperlinks */
-
-a:link {
-  color: #1772d0;
-  text-decoration: none;
+h4 {
+  font-size: 1.45em;
+  font-weight: bold; /* Add this line to make h4 elements bold */
 }
 
-a:visited {
-  color: #1772d0;
-  text-decoration: none;
-}
 
-a:active {
-  color: #1772d0;
-  text-decoration: none;
-}
-
+/* Disable underline on hover for all links */
 a:hover {
-  color: lightskyblue;
   text-decoration: none;
 }
 
-mark {
-  font-size: 10pt;
-  background-color: #e88d6e;
-  color: white;
-}
-
-/* Main page container */
-
-.container {
-  width: 1024px;
-  min-height: 150px;
-  margin: 0 auto; /* top and bottom, right and left */
-  border: 1px hidden #000;
-  /* border: none; */
-  text-align: center;
-  padding: 1em 1em 1em 1em; /* top, right, bottom, left */
-  color: #4d4b59;
-  background: #ffffff;
-}
-
-.containersmall {
-  width: 1024px;
-  min-height: 10px;
-  margin: 0 auto; /* top and bottom, right and left */
-  border: 1px hidden #000;
-  /* border: none; */
-  text-align: left;
-  padding: 1em 1em 1em 1em; /* top, right, bottom, left */
-  color: #4d4b59;
-  background: #ffffff;
-}
-
-.schedule {
-  width: 900px;
-  min-height: 200px;
-  margin: 0 auto; /* top and bottom, right and left */
-  /*border: 1px solid #000;*/
-  border: none;
-  text-align: left;
-  padding: 1em 1em 1em 1em; /* top, right, bottom, left */
-  color: #4d4b59;
-  background: #ffffff;
-}
-
-.news {
-  width: 1000px;
-  min-height: 18px;
-  margin: 0 auto; /* top and bottom, right and left */
-  /*border: 1px solid #000;*/
-  border: none;
-  text-align: left;
-  padding: 1em 1em 1em 1em; /* top, right, bottom, left */
-  color: #4d4b59;
-  background: #ffffff;
-}
-
-.notes {
-  width: 1000px;
-  min-height: 10px;
-  margin: 0 auto; /* top and bottom, right and left */
-  /*border: 1px solid #000;*/
-  border: none;
-  text-align: left;
-  padding: 1em 1em 1em 1em; /* top, right, bottom, left */
-  color: #4d4b59;
-  background: #ffffff;
-}
-
-.publication {
-  width: 900px;
-  min-height: 18px;
-  margin: 0 auto; /* top and bottom, right and left */
-  /*border: 1px solid #000;*/
-  border: none;
-  text-align: left;
-  padding: 1em 1em 1em 1em; /* top, right, bottom, left */
-  color: #4d4b59;
-  background: #ffffff;
-}
-
+/* Responsive container */
+.container,
+.containersmall,
+.schedule,
+.news,
+.notes,
+.researcher,
+.publication,
+.experience,
 .paper {
-  clear: both;
-  width: 700px;
-  margin: 0 auto; /* top and bottom, right and left */
-  border: 1px hidden #000;
-  /* border: none; */
-  text-align: left;
-  padding: 1em 1em 1em 1em; /* top, right, bottom, left */
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1em;
   color: #4d4b59;
   background: #ffffff;
-}
-
-/* Title and menu */
-
-.title {
-  font-size: 22pt;
-  margin: 1px;
-}
-
-.menubar {
-  white-space: nowrap;
-  margin-bottom: 0em;
   text-align: center;
-  font-size: 16px;
+}
+
+.researcher {
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+.paper,
+.experience {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+/* Responsive images */
+.researcherphoto img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Adjust table layouts */
+table {
+  width: 100%;
 }
 
 th,
 td {
-  padding-right: 20px;
+  padding: 10px;
 }
 
-/* Announcements */
-
-.announce_date {
-  font-size: 0.875em;
-  font-style: italic;
-}
-.announce {
-  font-size: inherit;
-}
-.schedule_week {
-  font-size: small;
-  background-color: #ccf;
+/* Styles for the paper section */
+.paper .teaser-cell {
+  width: 32%;
+  vertical-align: center;
 }
 
-/* Schedule */
-
-table.schedule {
-  border-width: 1px;
-  border-spacing: 2px;
-  border-style: none;
-  border-color: #000;
-  border-collapse: collapse;
-  background-color: white;
+.paper .info-cell {
+  width: 68%;
+  vertical-align: top;
+  text-align: left; /* Add this line to left-align text */
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1.5em;
 }
 
-/* Notes */
-
-table.notes {
-  border: none;
-  border-collapse: collapse;
+.paper img {
+  width: 100%;
+  height: auto;
 }
 
-.notes td {
-  border-bottom: 1px solid;
-  padding-bottom: 5px;
-  padding-top: 5px;
+.experience .image-cell {
+  width: 40%;
+  vertical-align: center;
 }
 
-/* Problem sets */
-
-table.psets {
-  /*	border: none;*/
-  border-collapse: collapse;
+.experience .info-cell {
+  width: 60%;
+  padding-left: 1em;
+  vertical-align: center;
+  text-align: left; /* Add this line to left-align text */
 }
 
-.psets td {
-  border-bottom: 1px solid;
-  padding-bottom: 5px;
-  padding-top: 5px;
+/* Targeting images inside the .experience section */
+.experience .image-cell img {
+  width: 30%;
+  object-fit: contain; /* Maintains aspect ratio */
 }
 
-.acknowledgement {
-  font-size: 0.875em;
-}
 
-.code {
-  font-family: "Courier New", Courier, monospace;
-}
-
-.instructorphoto img {
-  width: 220px;
-  border-radius: 220px;
-  margin-bottom: 10px;
-}
-
-.instructorphotosmall img {
-  width: 60px;
-  border-radius: 60px;
-  margin-bottom: 10px;
-}
-
-.instructor {
-  display: inline-block;
-  width: 140px;
-  text-align: center;
-  margin-right: 20px;
+.containersmall {
+  text-align: right;
 }
