@@ -130,7 +130,7 @@ td {
 }
 
 .avatar-cell {
-  width: 32%;
+  width: 40%;
   vertical-align: top;
   padding-top: 5em;
 }
@@ -156,6 +156,9 @@ td {
   /* Min: 0.5em, Preferred: 2%, Max: 1em */
   padding-left: clamp(0.1em, 5%, 1.5em);
   /* Min: 1em, Preferred: 5%, Max: 1.5em */
+}
+.bio-cell {
+  width: 60%;
 }
 
 
@@ -214,7 +217,7 @@ td {
 
   .researcherphoto img {
     /* border-radius: 50%; */
-    max-width: 135px;
+    max-width: 180px;
   }
 
   .bigname {
