@@ -107,7 +107,7 @@ a:hover {
 /* Responsive images */
 .researcherphoto img {
   width: 100%;
-  max-width: 320px;
+  max-width: 260px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
@@ -179,12 +179,10 @@ td {
 /* Targeting images inside the .experience section */
 .experience .image-cell img {
   width: clamp(80px, 30%, 120px);
-  /* Minimum 80px, preferred 30% of container, maximum 120px */
-  width: clamp(80px, 30%, 120px);
+  height: clamp(80px, 30%, 120px);
   /* Minimum 80px, preferred 30% of container, maximum 120px */
   max-width: 90%;
   /* Ensures image does not exceed 90% of the parent container's width */
-  max-height: fit-content;
   object-fit: contain;
   /* Prevents distortion by maintaining aspect ratio */
   display: block;
