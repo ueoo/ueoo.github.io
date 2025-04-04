@@ -162,6 +162,13 @@ td {
   width: 60%;
 }
 
+.social-links a {
+  margin-right: 10px;
+}
+.social-links a:last-child {
+  margin-right: 0;
+}
+
 
 .paper img {
   width: 100%;
