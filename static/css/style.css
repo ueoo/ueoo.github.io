@@ -8,8 +8,8 @@
 
 /* Use relative font sizes */
 body {
-  background: #e3e5e8;
-  color: #ffffff;
+  background: #FAFAFA;
+  color: #FFFFFF;
   font-family: "Lato", Verdana, Helvetica, sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -121,7 +121,14 @@ table {
 th,
 td {
   padding: clamp(0em, 1%, 1em);
+  padding-top: 0;
+  padding-bottom: 0;
   /* Min: 0.5em, Preferred: 2%, Max: 1em */
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Styles for the paper section */
@@ -153,7 +160,7 @@ td {
   /* Add this line to left-align text */
   padding-top: clamp(0.1em, 2%, 1em);
   /* Min: 0.5em, Preferred: 2%, Max: 1em */
-  padding-bottom: clamp(0.1em, 2%, 1em);
+  padding-bottom: 0;
   /* Min: 0.5em, Preferred: 2%, Max: 1em */
   padding-left: clamp(0.1em, 2%, 1em);
   /* Min: 1em, Preferred: 5%, Max: 1.5em */
