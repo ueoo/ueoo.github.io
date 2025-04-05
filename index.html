@@ -23,6 +23,21 @@
 
       gtag("config", "G-FZ85TD1NHH");
     </script>
+
+    <script>
+      // Check for system dark mode preference
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      // Set initial theme based on system preference
+      if (prefersDarkScheme.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+
+      // Listen for system theme changes
+      prefersDarkScheme.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      });
+    </script>
   </head>
 
   <body>

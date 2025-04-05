@@ -1,4 +1,22 @@
 /* CSS Document */
+:root {
+  --bg-color: #FAFAFA;
+  --text-color: #4d4b59;
+  --container-bg: #ffffff;
+  --link-color: #4d4b59;
+  --highlight-color: #BB2222;
+  --hr-color: #e0e0e0;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --container-bg: #1e1e1e;
+  --link-color: #e0e0e0;
+  --highlight-color: #ff4444;
+  --hr-color: #333333;
+}
+
 /* Ensure padding and borders are included in the element's total width and height */
 *,
 *::before,
@@ -8,8 +26,8 @@
 
 /* Use relative font sizes */
 body {
-  background: #FAFAFA;
-  color: #FFFFFF;
+  background: var(--bg-color);
+  color: var(--text-color);
   font-family: "Lato", Verdana, Helvetica, sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -17,6 +35,7 @@ body {
   padding: 0;
   min-width: 165px;
   /* Set your desired minimum width */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Responsive headings */
@@ -58,6 +77,12 @@ h4 {
   width: auto;
   height: 26px;
   vertical-align: middle;
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .social-links img[src*="github-mark.svg"],
+[data-theme="dark"] .social-links img[src*="twitterx.svg"] {
+  filter: invert(1);
 }
 
 .social-links {
@@ -85,9 +110,10 @@ a:hover {
   margin: 0 auto;
   padding: clamp(0.1em, 2%, 1em);
   /* Min: 0.5em, Preferred: 2%, Max: 1em */
-  color: #4d4b59;
-  background: #ffffff;
+  color: var(--text-color);
+  background: var(--container-bg);
   text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .researcher {
@@ -129,6 +155,9 @@ td {
 hr {
   margin-top: 10px;
   margin-bottom: 10px;
+  border: none;
+  border-top: 1px solid var(--hr-color);
+  transition: border-color 0.3s ease;
 }
 
 /* Styles for the paper section */
@@ -177,7 +206,7 @@ hr {
 }
 
 .highlight {
-  color:#BB2222;
+  color: var(--highlight-color);
 }
 
 
