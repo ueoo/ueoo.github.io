@@ -14,22 +14,21 @@
 
     <script>
       // Check for system dark mode preference
-      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
       // Set initial theme based on system preference
       if (prefersDarkScheme.matches) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute("data-theme", "dark");
       }
 
       // Listen for system theme changes
-      prefersDarkScheme.addEventListener('change', (e) => {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      prefersDarkScheme.addEventListener("change", (e) => {
+        document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
       });
     </script>
   </head>
 
   <body>
-    <!-- Updated index.html Structure Using Flexbox Instead of Tables -->
     <div class="researcher">
       <p class="bigname-top">Yue Gao</p>
       <table align="center" border="0" cellpadding="0">
@@ -44,20 +43,24 @@
           <td class="bio-cell">
             <p class="bigname">Yue Gao</p>
             <p align="center">
-            <a href="mailto:yuegao@cs.stanford.edu" class="breakable-email">yuegao@cs.stanford.edu</a></p>
-
-            <p align="justify">
-              I am an incoming PhD student at the <a href="https://svl.stanford.edu/">Stanford Vision and Learning Lab</a> in the <a href="https://www.cs.stanford.edu/">Computer Science</a> department of <a href="https://www.stanford.edu/">Stanford University</a>.
-              I've had a wonderful experience being advised by <a href="https://jiajunwu.com/">Jiajun Wu</a> and <a href="https://faculty.cc.gatech.edu/~bozhu/">Bo Zhu</a>, and collaborating with <a href="https://kovenyu.com/">Koven Yu</a>.
-            </p>
-            <p align="justify">
-              I finished my M.S. with distinction in research at <a href="https://www.pku.edu.cn">Peking University</a> in
-              2021, advised by
-              Prof. <a href="https://www.wict.pku.edu.cn/zlian/">Zhouhui Lian</a>.
+              <a href="mailto:yuegao@cs.stanford.edu" class="breakable-email">yuegao@cs.stanford.edu</a>
             </p>
 
             <p align="justify">
-              My primary research interests lie in <b>computer vision</b> and <b>computer graphics</b>. Specifically, I aim to enable computers to understand and predict the physical world by integrating advanced algorithms, such as perception and generative models, with foundational knowledge from physics.
+              I am an incoming PhD student at the <a href="https://svl.stanford.edu/">Stanford Vision and Learning Lab</a> in the
+              <a href="https://www.cs.stanford.edu/">Computer Science</a> department of <a href="https://www.stanford.edu/">Stanford University</a>.
+              I've had a wonderful experience being advised by <a href="https://jiajunwu.com/">Jiajun Wu</a> and
+              <a href="https://faculty.cc.gatech.edu/~bozhu/">Bo Zhu</a>, and collaborating with <a href="https://kovenyu.com/">Koven Yu</a>.
+            </p>
+            <p align="justify">
+              I finished my M.S. with distinction in research at <a href="https://www.pku.edu.cn">Peking University</a> in 2021, advised by Prof.
+              <a href="https://www.wict.pku.edu.cn/zlian/">Zhouhui Lian</a>.
+            </p>
+
+            <p align="justify">
+              My primary research interests lie in <b>computer vision</b> and <b>computer graphics</b>. Specifically, I aim to enable computers to
+              understand and predict the physical world by integrating advanced algorithms, such as perception and generative models, with
+              foundational knowledge from physics.
             </p>
 
             <p>The pronunciation of my name is <a href="https://www.howtopronounce.com/yue">Yuè</a>.</p>
@@ -105,6 +108,32 @@
 
     <div class="publication">
       <h2>Publications</h2>
+
+      <div class="paper">
+        <table align="center" border="0" cellpadding="0">
+          <td class=".image-cell">
+            <video muted loop autoplay playsinline webkit-playsinline style="width: 100%; height: 100%">
+              <source src="teasers/FluidNexus.mp4" type="video/mp4" />
+            </video>
+          </td>
+          <td class="info-cell">
+            <p>
+              <a href="https://arxiv.org/abs/2503.04720">
+                <b>FluidNexus: 3D Fluid Reconstruction and Prediction from a Single Video</b>
+              </a>
+              <br />
+              <b>Yue Gao*</b>, <a href="https://kovenyu.com">Hong-Xing Yu*</a>, <a href="https://faculty.cc.gatech.edu/~bozhu">Bo Zhu</a>,
+              <a href="https://jiajunwu.com">Jiajun Wu</a><br />
+              <em>Computer Vision and Pattern Recognition (CVPR)</em>, 2025<br />
+              <b class="highlight">Oral Presentation</b>
+            </p>
+            <a href="https://arxiv.org/pdf/2503.04720">pdf</a> /
+            <a href="https://yuegao.me/FluidNexus">website</a> /
+            <a href="https://github.com/ueoo/FluidNexus">code</a>
+          </td>
+        </table>
+        <hr />
+      </div>
 
       <div class="paper">
         <table align="center" border="0" cellpadding="0">
@@ -191,10 +220,8 @@
               </a>
               <br />
               <a href="https://scholar.google.com/citations?user=-ncz2s8AAAAJn">Fangyun Wei*</a>, <b>Yue Gao*</b>,
-              <a href="https://scholar.google.com/citations?user=lH4zgcIAAAAJ&hl=en">Zhirong Wu</a>,
-              <a href="https://ancientmooner.github.io">Han Hu</a>, <a href="https://www.microsoft.com/en-us/research/people/stevelin">Stephen Lin</a
-              ><br />
-              (* Equal contribution)<br />
+              <a href="https://scholar.google.com/citations?user=lH4zgcIAAAAJ">Zhirong Wu</a>, <a href="https://ancientmooner.github.io">Han Hu</a>,
+              <a href="https://www.microsoft.com/en-us/research/people/stevelin">Stephen Lin</a><br />
               <em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 2021<br />
               <b class="highlight">Spotlight</b>
             </p>
@@ -235,7 +262,6 @@
               <a href="https://arxiv.org/pdf/2005.07865.pdf"><b>Attribute2Font: Creating Fonts You Want From Attributes</b></a
               ><br />
               <a href="https://actasidiot.github.io/">Yizhi Wang*</a>, <b>Yue Gao*</b>, <a href="https://www.wict.pku.edu.cn/zlian/">Zhouhui Lian†</a><br />
-              (* Equal contribution, † Corresponding author)<br />
               <em>SIGGRAPH, ACM Transactions on Graphics (TOG)</em>, 2020 <br />
             </p>
 
@@ -254,7 +280,6 @@
               <a href="https://arxiv.org/pdf/1910.04987.pdf"><b>Artistic Glyph Image Synthesis via One-Stage Few-Shot Learning</b></a
               ><br />
               <b>Yue Gao*</b>, Yuan Guo*, <a href="https://www.wict.pku.edu.cn/zlian/">Zhouhui Lian†</a>, Yingmin Tang, Jianguo Xiao<br />
-              (* Equal contribution, † Corresponding author)<br />
               <em>SIGGRAPH Asia, ACM Transactions on Graphics (TOG)</em>, 2019<br />
             </p>
             <a href="https://arxiv.org/abs/1910.04987">arXiv</a> / <a href="https://yuegao.me/AGIS-Net">code</a>
@@ -263,15 +288,6 @@
       </div>
     </div>
     <br />
-
-    <div class="container">
-      <div class="notes">
-        <h2>Professional Service</h2>
-        <p>Reviewer: CVPR, ICCV, ECCV, SIGGRAPH, TOG, TPAMI, IJCV, AAAI, ACM Multimedia, IJCAI, ACM TOMM, IEEE TMM.</p>
-      </div>
-    </div>
-    <br />
-
 
     <div class="container">
       <h2>Education</h2>
@@ -390,6 +406,13 @@
     </div>
     <br />
 
+    <div class="container">
+      <div class="notes">
+        <h2>Professional Service</h2>
+        <p>Reviewer: CVPR, ICCV, ECCV, SIGGRAPH, TOG, TPAMI, IJCV, AAAI, ACM Multimedia, IJCAI, ACM TOMM, IEEE TMM.</p>
+      </div>
+    </div>
+    <br />
 
     <div class="containersmall">
       <p>This website is modified from <a href="https://gkioxari.github.io/">Georgia Gkioxari</a>.</p>

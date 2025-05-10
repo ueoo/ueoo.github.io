@@ -80,8 +80,8 @@ h4 {
   transition: filter 0.3s ease;
 }
 
-[data-theme="dark"] .social-links img[src*="github-mark.svg"],
-[data-theme="dark"] .social-links img[src*="twitterx.svg"] {
+[data-theme="dark"] .social-links img[src*="github.svg"],
+[data-theme="dark"] .social-links img[src*="x.svg"] {
   filter: invert(1);
 }
 
