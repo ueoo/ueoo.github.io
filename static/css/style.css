@@ -244,6 +244,11 @@ hr {
   text-align: right;
 }
 
+.award-item {
+  margin-left: 1em;
+  display: inline-block;
+}
+
 @media (max-width: 35em) {
   .image-cell {
     display: none;
