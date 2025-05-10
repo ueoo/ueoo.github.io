@@ -217,11 +217,13 @@ hr {
 
 .experience .image-cell {
   width: 40%;
+  padding-top: 0;
 }
 
 .experience .info-cell {
   width: 60%;
   vertical-align: center;
+  padding-top: 0;
 }
 
 /* Targeting images inside the .experience section */
