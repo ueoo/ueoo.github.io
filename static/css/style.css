@@ -63,7 +63,8 @@ h4 {
   font-size: 2.5em;
   /* font-weight: bold; */
   text-align: center;
-  word-spacing: 6px; /* Adjust the spacing */
+  word-spacing: 6px;
+  /* Adjust the spacing */
 }
 
 .breakable-email {
@@ -71,6 +72,17 @@ h4 {
   /* Allows the email to wrap within the link */
   word-wrap: break-word;
   /* For legacy browser support */
+  text-decoration: none;
+  color: inherit;
+}
+
+.breakable-email:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.code-font {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 .social-links img {
@@ -104,12 +116,13 @@ a:hover {
 .researcher,
 .publication,
 .experience,
-.paper {
+.paper,
+.research-interests {
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
+  padding-top: 0;
   padding: clamp(0.1em, 2%, 1em);
-  /* Min: 0.5em, Preferred: 2%, Max: 1em */
   color: var(--text-color);
   background: var(--container-bg);
   text-align: center;
@@ -137,6 +150,30 @@ a:hover {
   max-width: 260px;
   border-radius: 50%;
   margin-bottom: 10px;
+}
+
+
+.research-title .color1 {
+  color: #3ec6b3;
+}
+
+.research-title .color2 {
+  color: #e6c84f;
+}
+
+.research-title .color3 {
+  color: #82ddf2;
+}
+
+.research-interests .research-desc {
+  margin: 0 auto;
+  font-size: 1.1em;
+  color: var(--text-color);
+  text-align: justify;
+  padding-left: clamp(0em, 8.25%, 5em);
+  /* Minimum 1em, preferred 5%, maximum 5em */
+  padding-right: clamp(0em, 8.25%, 5em);
+  /* Minimum 1em, preferred 5%, maximum 5em */
 }
 
 /* Adjust table layouts */
@@ -167,9 +204,10 @@ hr {
 }
 
 .avatar-cell {
-  width: 40%;
+  width: 31%;
   vertical-align: top;
-  padding-top: 3em;
+  padding-left: 1em;
+  padding-top: 5em;
 }
 
 .avatar-cell-top {
@@ -194,13 +232,16 @@ hr {
   padding-left: clamp(0.1em, 2%, 1em);
   /* Min: 1em, Preferred: 5%, Max: 1.5em */
 }
+
 .bio-cell {
-  width: 60%;
+  width: 69%;
+  font-size: 1.1em;
 }
 
 .social-links a {
   margin-right: 10px;
 }
+
 .social-links a:last-child {
   margin-right: 0;
 }
@@ -241,9 +282,17 @@ hr {
   /* Centers the image horizontally within its container */
 }
 
+.notes {
+  padding-left: 8.25%;
+  padding-right: 8.25%;
+  padding-top: 0;
+  text-align: left;
+}
+
 
 .containersmall {
   text-align: right;
+  font-size: 0.8em;
 }
 
 .award-item {
@@ -281,4 +330,8 @@ hr {
     display: block;
     font-size: 2em;
   }
+}
+
+.nowrap {
+  white-space: nowrap;
 }
