@@ -335,3 +335,9 @@ hr {
 .nowrap {
   white-space: nowrap;
 }
+
+
+.highlight-reviewer {
+  color: rgb(54, 125, 189); /* RGB: 0.21, 0.49, 0.74 */
+  font-weight: bold;
+}
