@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Photography - Yue Gao</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+
+    <script>
+      // Check for system dark mode preference
+      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+      // Set initial theme based on system preference
+      if (prefersDarkScheme.matches) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+
+      // Listen for system theme changes
+      prefersDarkScheme.addEventListener("change", (e) => {
+        document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Photography</h2>
+      <p class="code-font"><a href="index.html">← Back to home</a></p>
+      <p class="gallery-desc">A collection of photos I took. Images are loaded from the <code>photos/</code> folder.</p>
+      <div id="gallery" class="gallery-grid"></div>
+      <div id="gallerySentinel" aria-hidden="true" style="height: 1px;"></div>
+      <p id="emptyGalleryMsg" style="display:none;">No photos yet. Add images to <code>photos/</code> and list them in <code>photos/manifest.json</code>.</p>
+    </div>
+
+    <!-- Lightbox overlay -->
+    <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <img id="lightboxImg" alt="Photo preview" />
+    </div>
+
+    <script>
+      const BATCH_SIZE = 30;
+      let normalizedItems = [];
+      let nextIndex = 0;
+
+      function ensurePath(p) {
+        if (!p) return '';
+        return p.startsWith('http') ? p : ('photos/' + p);
+      }
+
+      function resolveSrcset(srcset) {
+        if (!srcset) return '';
+        if (typeof srcset === 'string') return srcset;
+        if (Array.isArray(srcset)) {
+          return srcset
+            .map((s) => {
+              if (typeof s === 'string') {
+                return s.startsWith('http') ? s : ('photos/' + s);
+              }
+              if (s && typeof s === 'object' && s.src) {
+                const src = ensurePath(s.src);
+                if (s.w) return src + ' ' + s.w + 'w';
+                if (s.x) return src + ' ' + s.x + 'x';
+                return src;
+              }
+              return '';
+            })
+            .filter(Boolean)
+            .join(', ');
+        }
+        return '';
+      }
+
+      function normalizeEntry(entry) {
+        if (typeof entry === 'string') {
+          const p = ensurePath(entry);
+          return { thumb: p, full: p, alt: 'Photo' };
+        }
+        if (entry && typeof entry === 'object') {
+          const thumb = ensurePath(entry.thumb || entry.src || entry.full || '');
+          const full = ensurePath(entry.full || entry.src || entry.thumb || '');
+          const alt = entry.caption || entry.alt || 'Photo';
+          const srcset = resolveSrcset(entry.srcset);
+          const sizes = typeof entry.sizes === 'string' ? entry.sizes : '';
+          return { thumb, full, alt, srcset, sizes };
+        }
+        return null;
+      }
+
+      function createItem(item) {
+        const container = document.createElement('div');
+        container.className = 'gallery-item';
+
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = item.thumb || item.full;
+        if (item.srcset) img.setAttribute('srcset', item.srcset);
+        if (item.sizes) img.setAttribute('sizes', item.sizes);
+        img.alt = item.alt || 'Photo';
+        img.className = 'loading-blur';
+        img.addEventListener('load', () => img.classList.remove('loading-blur'));
+
+        img.addEventListener('click', () => openLightbox(item.full || img.src, img.alt));
+
+        container.appendChild(img);
+        return container;
+      }
+
+      function openLightbox(src, altText) {
+        const overlay = document.getElementById('lightbox');
+        const overlayImg = document.getElementById('lightboxImg');
+        overlayImg.src = src;
+        overlayImg.alt = altText || 'Photo preview';
+        overlay.classList.remove('hidden');
+      }
+
+      function closeLightbox() {
+        const overlay = document.getElementById('lightbox');
+        const overlayImg = document.getElementById('lightboxImg');
+        overlay.classList.add('hidden');
+        overlayImg.src = '';
+      }
+
+      document.getElementById('lightbox').addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      function renderNextBatch() {
+        const gallery = document.getElementById('gallery');
+        const end = Math.min(nextIndex + BATCH_SIZE, normalizedItems.length);
+        for (let i = nextIndex; i < end; i++) {
+          gallery.appendChild(createItem(normalizedItems[i]));
+        }
+        nextIndex = end;
+        if (nextIndex >= normalizedItems.length) {
+          const sentinel = document.getElementById('gallerySentinel');
+          if (sentinel && sentinel.parentNode) {
+            sentinel.parentNode.removeChild(sentinel);
+          }
+        }
+      }
+
+      async function loadGallery() {
+        const emptyMsg = document.getElementById('emptyGalleryMsg');
+        try {
+          const res = await fetch('photos/manifest.json', { cache: 'no-cache' });
+          if (!res.ok) throw new Error('Manifest not found');
+          const data = await res.json();
+          const items = Array.isArray(data) ? data : [];
+          normalizedItems = items.map(normalizeEntry).filter(Boolean);
+
+          if (normalizedItems.length === 0) {
+            emptyMsg.style.display = 'block';
+            return;
+          }
+
+          renderNextBatch();
+
+          if (normalizedItems.length > nextIndex) {
+            const sentinel = document.getElementById('gallerySentinel');
+            if (sentinel && 'IntersectionObserver' in window) {
+              const io = new IntersectionObserver((entries) => {
+                if (entries.some((e) => e.isIntersecting)) {
+                  renderNextBatch();
+                }
+              }, { rootMargin: '800px 0px 800px 0px' });
+              io.observe(sentinel);
+            }
+          }
+        } catch (err) {
+          emptyMsg.style.display = 'block';
+        }
+      }
+
+      loadGallery();
+    </script>
+  </body>
+</html>

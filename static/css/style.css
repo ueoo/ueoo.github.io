@@ -341,3 +341,59 @@ hr {
   color: rgb(54, 125, 189); /* RGB: 0.21, 0.49, 0.74 */
   font-weight: bold;
 }
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--container-bg);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+/* Blur-up placeholder for lazy images */
+.loading-blur {
+  filter: blur(12px);
+  transform: scale(1.02);
+}
