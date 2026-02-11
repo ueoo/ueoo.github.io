@@ -271,6 +271,12 @@ hr {
   color: #1f3f7a;
 }
 
+/* Keep author full names on one line (but allow title to wrap) */
+.publication .paper .info-cell p a:not(:first-child),
+.publication .paper .info-cell p b:not(:first-child) {
+  white-space: nowrap;
+}
+
 /* Darker heading text for education/work experience items */
 .experience h4,
 .experience h4 a,
