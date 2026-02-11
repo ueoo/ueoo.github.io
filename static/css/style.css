@@ -144,6 +144,18 @@ a:hover {
   /* Minimum 1em, preferred 5%, maximum 5em */
 }
 
+.paper {
+  margin-bottom: 1.25rem;
+}
+
+/* Slightly tighter spacing between major top-level sections */
+.researcher + br,
+.research-interests + br,
+.publication + br,
+.container + br {
+  line-height: 0.45;
+}
+
 /* Responsive images */
 .researcherphoto img {
   width: 100%;
@@ -248,6 +260,22 @@ hr {
 
 .highlight {
   color: var(--highlight-color);
+}
+
+/* Dark blue paper title links only */
+.publication .paper .info-cell p > a:first-child {
+  color: #1f3f7a;
+}
+
+.publication .paper .info-cell p > a:first-child:hover {
+  color: #1f3f7a;
+}
+
+/* Darker heading text for education/work experience items */
+.experience h4,
+.experience h4 a,
+.experience h4 b {
+  color: #2f2d3a;
 }
 
 
