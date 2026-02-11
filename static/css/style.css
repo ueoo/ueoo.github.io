@@ -124,7 +124,7 @@ a:hover {
   padding-top: 0;
   padding: clamp(0.1em, 2%, 1em);
   color: var(--text-color);
-  background: var(--container-bg);
+  background: var(--bg-color);
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
