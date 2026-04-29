@@ -271,6 +271,11 @@ hr {
   color: #1f3f7a;
 }
 
+[data-theme="dark"] .publication .paper .info-cell p > a:first-child,
+[data-theme="dark"] .publication .paper .info-cell p > a:first-child:hover {
+  color: var(--text-color);
+}
+
 /* Keep author full names on one line (but allow title to wrap) */
 .publication .paper .info-cell p a:not(:first-child),
 .publication .paper .info-cell p b:not(:first-child) {
@@ -282,6 +287,12 @@ hr {
 .experience h4 a,
 .experience h4 b {
   color: #2f2d3a;
+}
+
+[data-theme="dark"] .experience h4,
+[data-theme="dark"] .experience h4 a,
+[data-theme="dark"] .experience h4 b {
+  color: var(--text-color);
 }
 
 
