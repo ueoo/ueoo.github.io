@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Predictive 4D Generation with Latent State Machines</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-3 publication-title" style="font-size: 2.2rem;">
+              Predictive 4D Generation with Latent State Machines
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="https://yuegao.me/">Yue Gao</a><sup>1,*</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><a href="https://chen-geng.com/">Chen Geng</a><sup>1,*</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><a href="https://hzhupku.github.io/">Hanzhe Hu</a><sup>2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><a href="https://fangyunwei.github.io/">Fangyun Wei</a><sup>3</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><a href="https://jeffreyxiang.github.io/">Jianfeng Xiang</a><sup>3</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><a href="https://jlyang.org/">Jiaolong Yang</a><sup>3</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><a href="https://jiajunwu.com/">Jiajun Wu</a><sup>1</sup></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Stanford University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><sup>2</sup>Carnegie Mellon University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><sup>3</sup>Microsoft Research</span>
+            </div>
+            <div class="is-size-6 publication-authors">
+              <span class="author-block"><sup>*</sup>Equal contribution</span>
+            </div>
+            <div class="is-size-4 publication-authors">
+              <span class="author-block">NeurIPS 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video class="teaser-video" autoplay loop muted playsinline preload="auto">
+          <source src="./static/videos/teaser.mp4" type="video/mp4">
+        </video>
+        <p class="subtitle has-text-centered">
+          From a single image of a plant at any growth stage, LSM rolls out its full 4D lifespan, both forward into bloom and backward toward sprout. It models time as a <em>finite state machine</em> on the latent space of a 3D foundation model.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Predicted Growth Sequence</h2>
+      <p class="subtitle has-text-centered">
+        LSM predicts the dynamics geometry, texture, from a single input image.
+      </p>
+      <figure class="media-card">
+        <figcaption class="media-title results-subtitle">Future prediction</figcaption>
+        <video class="main-results-video" autoplay loop muted playsinline preload="auto">
+          <source src="./static/videos/growth.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure class="media-card mt-5">
+        <figcaption class="media-title results-subtitle">Past reconstruction</figcaption>
+        <video class="main-results-video" autoplay loop muted playsinline preload="auto">
+          <source src="./static/videos/reverse.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              What is the right representation for 4D (3D + time) generation of graphics assets conditioned on their current states? In this setting, an ideal 4D representation should support flexible geometric structure, empower long-horizon modeling, and utilize training data efficiently. We study this problem by considering a sufficiently challenging setting to stress test those properties: learning the generative distribution of the entire 4D lifespan of a plant, conditioned on a snapshot of its growth. We curate a large-scale dataset and benchmark for this setting, on which most existing 4D representations and accompanying generative models fail to deliver promising results. We analyze the pitfalls of existing representations and point out that the capacity of existing models is bounded by their representations: they are mostly augmenting a temporal dimension to an existing geometric representation, without a semantically-meaningful low-dimensional state representation. Instead, we argue for a framework for designing 4D representations by separately considering 3D state representations and temporal state transitions. We propose an instantiation of this framework using latent spaces of 3D foundation models and a transformer-based state transition model, effectively forming a finite state machine on a latent 3D space. Therefore, we name this instantiation a <em>latent state machine</em> and compare it against existing generative models on the proposed benchmark. Our evaluation shows that our model achieves state-of-the-art performance in expressiveness, data efficiency, and rendering quality, surpassing existing methods by a large margin.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <br><br>
+
+      <!-- Overview. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Overview</h2>
+          <img src="./static/images/overview.png" width="900" alt="LSM overview">
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+            <p>
+              <b>LSM</b> overview. <b>(a)</b> A 4D sequence is encoded by the finetuned TRELLIS 3D VAE encoders into a temporal sequence of structured latent states. <b>(b)</b> A <em>state-transition</em> flow transformer denoises the next sparse-structure latent &#x1D4AB;<sub><i>t</i>+1</sub> from the current state &#x1D4AB;<sub><i>t</i></sub>, with a learnable direction embedding <i>d</i> that switches the rollout between forward (future) and backward (past); a structure decoder then yields the sparse voxel set {<i>p<sub>i</sub></i>}<sub><i>t</i>+1</sub>. <b>(c)</b> A sparse flow transformer predicts per-voxel features on the predicted structure, conditioned on DINOv2 image features for identity preservation, and then the 3D representation decoders (e.g., meshes and 3D Gaussians) produce the final 4D asset.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Overview. -->
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{gao2026predictive,
+  title     = {Predictive 4D Generation with Latent State Machines},
+  author    = {Gao, Yue and Geng, Chen and Hu, Hanzhe and Wei, Fangyun and Xiang, Jianfeng and Yang, Jiaolong and Wu, Jiajun},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
